@@ -43,11 +43,12 @@ function rewriteComment(comment, issueMapping) {
   for (e of issueMapping) {
     let fqIssueSource = e.source.owner + '/' + e.source.repo + '#' + e.source.issueNumber
     let issueUrlSource = 'https://(?:\\w+\\.)?github.com/' + e.source.owner + '/' + e.source.repo + '/issues/' + e.source.issueNumber
+    let issueUrlDest = 'https://github.com/'+e.dest.owner + '/' + e.dest.repo + '/issues/' + e.dest.issueNumber
     let fqIssueDest = e.dest.owner + '/' + e.dest.repo + '#' + e.dest.issueNumber
     let reFqIssue = new RegExp('(\\b)' + fqIssueSource + '(\\b)', 'g')
     let reIssueUrl = new RegExp('(\\b)' + issueUrlSource + '(\\b)', 'ig')
     rewritten = rewritten.replace(reFqIssue, '$1' + fqIssueDest + '$2')
-    rewritten = rewritten.replace(reIssueUrl, '$1' + fqIssueDest + '$2')
+    rewritten = rewritten.replace(reIssueUrl, '$1' + issueUrlDest + '$2')
   }
   return rewritten
 }
