@@ -41,7 +41,10 @@ async function getSourceIssues() {
     owner: settings.repos.source.owner,
     repo: settings.repos.source.repoName,
     state: "open",
+    // Get oldest issues first: they will be transferred first with the smallest
+    // issue number in the target repository.
     sort: "created",
+    direction: "asc",
     labels: settings.searchLabels.join(',')
   })
   issuesAndPulls = await octokit.paginate(issueQueryOptions)
