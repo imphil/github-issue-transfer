@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "version": "0.1",
+  "name": "github-issue-transfer",
+  "description": "Command line utility to transfer GitHub issues",
+  "author": "Philipp Wagner <mail@philipp-wagner.com>",
+  "homepage": "https://github.com/imphil/github-issue-transfer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imphil/github-issue-transfer.git"
+  },
+  "license": "Apache 2",
+  "bin": "github-issue-transfer.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "bugs": {
+    "url": "https://github.com/imphil/github-issue-transfer/issues"
+  },
+  "dependencies": {
+    "@octokit/rest": "^16.28.7",
+    "prompt-password": "^1.2.0",
+    "puppeteer": "^1.19.0",
+    "request": "^2.88.0",
+    "yargs": "^14.0.0"
+  }
+}
